@@ -16,7 +16,11 @@ class Post extends Model {
     protected $dates = ['deleted_at'];
 
     public function category() {
-        return belongsTo('App\Category');
+        return $this->belongsTo('App\Category');
+    }
+
+    public function tags() {
+        return $this->belongsToMany('App\Tag');
     }
 
     public function getFeaturedImageAttribute($featured_image) {

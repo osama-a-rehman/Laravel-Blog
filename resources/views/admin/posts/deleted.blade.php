@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="panel">
+        <div class="panel-heading">
+            Deleted Posts
+        </div>
+
         <div class="panel-body">
 			@if(count($posts) > 0)
             <table class="table table-hover">
@@ -43,9 +47,6 @@
                     @endforeach
                 </tbody>
             </table>
-
-
-            
 			@else
 				<h2 class="text-center">No Deleted Posts</h2>
 			@endif

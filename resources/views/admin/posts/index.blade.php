@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="panel">
+        <div class="panel-heading">
+            Posts
+        </div>
+
         <div class="panel-body">
 			@if(count($posts) > 0)
             <table class="table table-hover">
