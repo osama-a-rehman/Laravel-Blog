@@ -14,6 +14,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
 
+    @yield('styles')
+
     <style>
         textarea{
             resize: none;
@@ -114,6 +116,22 @@
                         <li class="list-group-item">
                             <a href="{{ route('tag.create') }}">Create New Tag</a>
                         </li>
+
+                        @if(Auth::user()->admin)
+
+                        <li class="list-group-item">
+                            <a href="{{ route('users') }}">Users</a>
+                        </li>
+
+                        <li class="list-group-item">
+                            <a href="{{ route('user.create') }}">Create New User</a>
+                        </li>
+
+                        @endif
+
+                        <li class="list-group-item">
+                            <a href="{{ route('user.profile') }}">Edit Profile</a>
+                        </li>
                     </ul>
                 </div>
                 @endif
@@ -160,7 +178,11 @@
             toastr.success("{{ Session::get('success') }}", {timeOut: 2000});
         @elseif(Session::has('info'))
             toastr.info("{{ Session::get('info') }}", {timeOut: 2000});   
+        @elseif(Session::has('error'))
+            toastr.info("{{ Session::get('error') }}", {timeOut: 2000});   
         @endif
     </script>
+
+    @yield('scripts')
 </body>
 </html>
